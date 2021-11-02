@@ -1,6 +1,8 @@
 <h2>Movies list</h2>
 <ul>
-    <% @movies.each do |movies|%>
-        <li><%=movies%></li>
+    <% @movies.each do |movie|%>
+        <li><strong><%=movie.name%></strong>
+        in <%=movie.location%>, Price:  <%=number_to_currency(movie.price, precision: 0)%> 
+        </li>
     <%end%>
 </ul>

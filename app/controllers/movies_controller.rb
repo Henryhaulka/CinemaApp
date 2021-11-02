@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
   def index
-    @movies = %w[Acrimony Superfly Swallow]
+    @movies = Movie.all
   end
 end
