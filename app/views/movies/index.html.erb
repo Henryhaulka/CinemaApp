@@ -5,6 +5,6 @@
         in <%=movie.location%>, Price: <%=price(movie)%>
         </li>
         <p>About: <%= truncate(movie.description, size: 40, seperator: " ")%></p>
-         <p>Released Date: <%=movie.viewing_date%></p>
+         <p>Viewing Time: <%= day_time(movie)%></p>
     <%end%>
 </ul>
