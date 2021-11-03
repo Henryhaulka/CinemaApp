@@ -9,8 +9,13 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+   
   <body>
+  <header class= "bg-primary">
+     <h3 class= 'text-white p-2'> <%= image_tag('movie',size: "50x30", class:'movies')%> MoviesHouse</h3>
+  </header>
     <%= yield %>
+     <footer class = 'bg-dark text-white'>Made my Henryhaulka</footer>
   </body>
+ 
 </html>
