@@ -4,4 +4,6 @@
             </li>
             <p><span class="bold">About:</span> <%= @movie.description%></p>
       <p class ="text-danger">Viewing Time: <span class="text-primary"><%= day_time(@movie) %></span></p>
+     <%= link_to "Edit #{@movie.name}", edit_movie_path(@movie), class:'btn btn-dark'%>
+   
    </section>
