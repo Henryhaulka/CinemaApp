@@ -2,12 +2,7 @@
 <ul>
     <% @movies.each do |movie|%>
         <li><strong><%=movie.name%></strong>
-        in <%=movie.location%>, Price:
-        <%if movie.price == 0%>
-          Free
-        <%else%>
-           <%=number_to_currency(movie.price, precision: 0)%> 
-        <%end%>
+        in <%=movie.location%>, Price: <%=price(movie)%>
         </li>
         <p>About: <%= truncate(movie.description, size: 40, seperator: " ")%></p>
          <p>Released Date: <%=movie.viewing_date%></p>
