@@ -3,7 +3,7 @@
     <% @movies.each do |movie|%>
         <div class = 'p-2 border-bottom border-bottom-warning mb-2'>
             <h3><%=movie.name%></h3>
-            in <%=movie.location%> Cinema, <span class = 'price'> <%=price(movie)%></span>
+            in <%=movie.location%> Cinema, <span class = 'price text-white'> <%=price(movie)%></span>
             </li>
             <p>About: <%= truncate(movie.description, size: 40, seperator: " ")%></p>
              <p class ="text-danger">Viewing Time: <span class="text-primary"><%= day_time(movie) %></span></p>

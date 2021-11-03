@@ -1,6 +1,7 @@
 // Place all the styles related to the Movies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
 .movies {
     border-radius: 0.2rem;
 }
@@ -21,4 +22,16 @@ footer {
     background-color: rgba(0, 143, 122, 0.815);
     padding: 5px;
     border-radius: 3px;
+    transform: skewY(-5deg);
+}
+
+.bold {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+@media screen and (max-width: 500px) {
+  html {
+    font-size: 60%;
+  }
 }
