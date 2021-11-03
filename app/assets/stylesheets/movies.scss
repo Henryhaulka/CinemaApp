@@ -2,8 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+
+.body {
+  background: linear-gradient(to right bottom,rgba(0, 0, 0, 0.945), rgba(0, 0, 0, 0.548)),
+  url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/fall-movies-index-1628968089.jpg');
+  color: wheat;
+  height: 100vh;
+  
+}
 .movies {
     border-radius: 0.2rem;
+}
+
+head {
+    margin: 0;
 }
 
 footer {
@@ -30,8 +42,20 @@ footer {
     font-size: 1rem;
 }
 
+
+
+.half_width {
+  width: 60%;
+  margin: auto;
+
+}
+
 @media screen and (max-width: 500px) {
   html {
     font-size: 60%;
   }
+
+  .half_width {
+  width: 90%;
+}
 }
