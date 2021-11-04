@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   root  'movies#index'
-  # get 'movies' => 'movies#index'
   resources :movies
-  # get 'movies/:id' => 'movies#show'
+  #resources handles all these below
+  # get 'movies' => 'movies#index'
+  # get 'movies/new' => 'movies#new'
+  # get 'movies/:id' => 'movies#show', as: 'movie'
+  # get 'movies/:id/edit' => 'movies#edit', as: 'edit_movie'
+  # patch 'movies/:id' => 'movies#update'
 end
