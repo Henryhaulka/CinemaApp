@@ -1,6 +1,11 @@
 class Movie < ApplicationRecord
-    def free?
-        price.zero? || price.blank?
+    def zero?
+        self[:price].zero? 
     end
+
+    def nothing?
+        self[:price].nil?
+    end
+    
     
 end
