@@ -29,6 +29,14 @@ footer {
     padding-bottom: 5rem;
 }
 
+.nav-design {
+  margin-left: 20px;
+}
+
+.nav-design:hover {
+  opacity: 0.6;
+}
+
 .price,
 .price1 {
     float: right;
@@ -47,6 +55,11 @@ footer {
     font-size: 1rem;
 }
 
+.nav-design {
+  margin: 1rem 0 0 0.5rem;
+
+}
+
 
 
 .half_width {
@@ -62,5 +75,10 @@ footer {
 
   .half_width {
   width: 90%;
+}
+
+.nav-design {
+  margin: 1.3rem 0 0 0.5rem;
+
 }
 }
