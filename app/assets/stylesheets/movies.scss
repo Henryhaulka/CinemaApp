@@ -29,12 +29,17 @@ footer {
     padding-bottom: 5rem;
 }
 
-.price {
+.price,
+.price1 {
     float: right;
     background-color: rgba(0, 143, 122, 0.815);
     padding: 5px;
     border-radius: 3px;
     transform: skewY(-5deg);
+}
+
+.price1 {
+    float: left;
 }
 
 .bold {
