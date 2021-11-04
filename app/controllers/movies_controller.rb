@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
   def index
-    @movies = Movie.all
+    @movies = Movie.upcoming
   end
 
   def new
@@ -33,7 +33,15 @@ class MoviesController < ApplicationController
       render :edit
     end
   end
-   
+  def destroy
+    @movie = Movie.find(params[:id])
+    if @movie.destroy
+       redirect_to movies_path(@movies)
+    else
+       render :show
+    end
+  end
+  
   private
   def movie_params
     params.require(:movie).permit(:name, :location, :description, :viewing_date, :price)
