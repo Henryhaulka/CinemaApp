@@ -1,6 +1,6 @@
    <section class = 'container'>
       <h1><%= @movie.name%></h1>
-      in <%=@movie.location%> Cinema, <span class = 'price text-white'> <%=price(@movie)%></span>
+      in <%=@movie.location%> Cinema, <br> <br><p><span class= 'price1 text-white'> <%=price(@movie)%></span></p><br><br>
             </li>
             <p><span class="bold">About:</span> <%= @movie.description%></p>
       <p class ="text-danger">Viewing Time: <span class="text-primary"><%= day_time(@movie) %></span></p>
