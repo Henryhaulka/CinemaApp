@@ -12,7 +12,11 @@
    
   <body class= 'body'>
      <%= render 'layouts/header' %>
-    <div class= 'book'><%= yield %></div>
+    <div class= 'book'>
+    <%= render 'layouts/notice'%>
+    
+    <%= yield %>
+    </div>
       <%= render 'layouts/footer' %>
   </body>
  
