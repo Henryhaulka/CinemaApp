@@ -4,7 +4,7 @@
         <div class = 'p-2 border-bottom border-bottom-warning mb-2'>
             <h3><%= link_to movie.name, movie_path(movie), class: 'text-decoration-none'%></h3>
             <div class="home">
-                <div><%=for_avatar_small(movie)%></div>
+                <div class= 'img-margin'><%=for_avatar_small(movie)%></div>
                 <div class="home_sub">
                     <div>
                         in <%=movie.location%> Cinema,
