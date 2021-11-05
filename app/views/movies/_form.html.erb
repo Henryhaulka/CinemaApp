@@ -1,8 +1,13 @@
-<%= form_with(model: @movie) do |f|%>
+<%= form_with(model: @movie, html: {multipart: true}) do |f|%>
     <form class="form-group ">
         <div>
             <%= f.label :name %>
             <%= f.text_field :name, autofocus: true, class:"form-control"%>
+        </div><br>
+
+        <div>
+            <%= f.label :avatar%>
+            <%= f.file_field :avatar, class:"form-control"%>
         </div><br>
         <div>
             <%= f.label :location%>

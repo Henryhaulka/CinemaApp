@@ -7,7 +7,7 @@
   background: linear-gradient(to right bottom,rgba(0, 0, 0, 0.945), rgba(0, 0, 0, 0.548)),
   url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/fall-movies-index-1628968089.jpg');
   color: wheat;
-  height: 100vh;
+
   
 }
 .movies {
@@ -26,7 +26,7 @@ footer {
 }
 
 .movies_content {
-    padding-bottom: 5rem;
+    padding-bottom: 15rem;
 }
 
 .nav-design {
@@ -48,6 +48,13 @@ footer {
 
 .price1 {
     float: left;
+}
+
+.photo {
+  width: 30%;
+  height: 20rem;
+  margin: auto;
+  display: block;
 }
 
 .bold {
