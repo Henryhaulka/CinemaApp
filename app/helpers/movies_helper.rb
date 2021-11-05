@@ -12,5 +12,14 @@ module MoviesHelper
     def day_time(movie)
         movie.viewing_date.strftime("%a, %d %B %Y at %I:%M %P")
     end
+
+    def for_avatar(movie)
+        if movie.avatar?
+            image_tag @movie.avatar.url(:medium)
+        else
+            image_tag 'default_avatar.jpg'
+        end
+    end
+    
     
 end
