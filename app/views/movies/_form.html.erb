@@ -1,5 +1,6 @@
 <%= form_with(model: @movie, html: {multipart: true}) do |f|%>
     <form class="form-group ">
+     <%= render "shared/error", object: @movie%>
         <div>
             <%= f.label :name %>
             <%= f.text_field :name, autofocus: true, class:"form-control"%>

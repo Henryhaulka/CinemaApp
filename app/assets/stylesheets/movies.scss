@@ -46,8 +46,19 @@ footer {
     transform: skewY(-5deg);
 }
 
+.img-margin {
+  margin-top: 1rem;
+}
+
 .price1 {
     float: left;
+}
+
+.error {
+  background-color: #a9dd30;
+  padding: 1.5rem;
+  border-radius: 10px;
+  color: white;
 }
 
 .home_sub {
@@ -97,5 +108,10 @@ footer {
 .nav-design {
   margin: 1.3rem 0 0 0.5rem;
 
+}
+
+.home {
+ 
+  grid-template-columns: 1fr;
 }
 }
