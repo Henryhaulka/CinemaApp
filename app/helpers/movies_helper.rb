@@ -13,7 +13,7 @@ module MoviesHelper
         movie.viewing_date.strftime("%a, %d %B %Y at %I:%M %P")
     end
 
-    def for_avatar(movie)
+    def for_avatar_medium(movie)
         if movie.avatar?
             image_tag @movie.avatar.url(:medium)
         else
@@ -21,5 +21,12 @@ module MoviesHelper
         end
     end
     
+    def for_avatar_small(movie)
+        if movie.avatar?
+            image_tag movie.avatar.url(:small)
+        else
+            image_tag("default_avatar.jpg", size: "150x150" ) 
+        end
+    end
     
 end

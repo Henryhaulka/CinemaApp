@@ -39,7 +39,7 @@ footer {
 
 .price,
 .price1 {
-    float: right;
+    height: 35px;
     background-color: rgba(0, 143, 122, 0.815);
     padding: 5px;
     border-radius: 3px;
@@ -48,6 +48,16 @@ footer {
 
 .price1 {
     float: left;
+}
+
+.home_sub {
+  display: flex;
+  justify-content: space-between;
+}
+
+.home {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
 }
 
 .photo {

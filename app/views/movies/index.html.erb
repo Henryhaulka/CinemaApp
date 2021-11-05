@@ -3,10 +3,18 @@
     <% @movies.each do |movie|%>
         <div class = 'p-2 border-bottom border-bottom-warning mb-2'>
             <h3><%= link_to movie.name, movie_path(movie), class: 'text-decoration-none'%></h3>
-            in <%=movie.location%> Cinema, <span class = 'price text-white'> <%= price(movie)%></span>
-            </li>
-            <p>About: <%= truncate(movie.description, size: 40, seperator: " ")%></p>
-             <p class ="text-danger">Viewing Time: <span class="text-primary"><%= day_time(movie) %></span></p>
+            <div class="home">
+                <div><%=for_avatar_small(movie)%></div>
+                <div class="home_sub">
+                    <div>
+                        in <%=movie.location%> Cinema,
+                        <p>About: <%= truncate(movie.description, size: 40, seperator: " ")%></p>
+                        <p class ="text-danger">Viewing Time: <span class="text-primary"><%= day_time(movie) %></span></p>
+                    </div>
+                    
+                     <div class= "price"> <%= price(movie)%></div>
+                </div>
+            </div>
         </div>
     <%end%>
 </section>
