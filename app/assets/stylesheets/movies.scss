@@ -1,0 +1,112 @@
+// Place all the styles related to the Movies controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.body {
+  background: linear-gradient(to right bottom,rgba(0, 0, 0, 0.945), rgba(0, 0, 0, 0.548)),
+  url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/fall-movies-index-1628968089.jpg');
+  color: wheat;
+}
+.movies {
+  border-radius: 0.2rem;
+}
+
+head {
+  margin: 0;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem 0.5rem;
+}
+
+.movies_content {
+  padding-bottom: 15rem;
+}
+
+.nav-design {
+  margin-left: 20px;
+}
+
+.nav-design:hover {
+  opacity: 0.6;
+}
+
+.price,
+.price1 {
+  height: 35px;
+  background-color: rgba(0, 143, 122, 0.815);
+  padding: 5px;
+  border-radius: 3px;
+  transform: skewY(-5deg);
+}
+
+.img-margin {
+  margin-top: 1rem;
+}
+
+.price1 {
+  float: left;
+}
+
+.error {
+  background-color: #a9dd30;
+  padding: 1.5rem;
+  border-radius: 10px;
+  color: white;
+}
+
+.home_sub {
+  display: flex;
+  justify-content: space-between;
+}
+
+.home {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.photo {
+  width: 30%;
+  height: 20rem;
+  margin: auto;
+  display: block;
+}
+
+.bold {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.nav-design {
+  margin: 1rem 0 0 0.5rem;
+
+}
+
+
+
+.half_width {
+  width: 60%;
+  margin: auto;
+
+}
+
+@media screen and (max-width: 500px) {
+  html {
+    font-size: 60%;
+  }
+
+  .half_width {
+    width: 90%;
+  }
+
+  .nav-design {
+    margin: 1.3rem 0 0 0.5rem;
+  }
+
+  .home {
+    grid-template-columns: 1fr;
+  }
+}

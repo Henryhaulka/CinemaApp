@@ -1,0 +1,38 @@
+<%= form_with(model: @movie, html: {multipart: true}) do |f|%>
+    <form class="form-group ">
+     <%= render "shared/error", object: @movie%>
+        <div>
+            <%= f.label :name %>
+            <%= f.text_field :name, autofocus: true, class:"form-control"%>
+        </div><br>
+
+        <div>
+            <%= f.label :avatar%>
+            <%= f.file_field :avatar, class:"form-control"%>
+        </div><br>
+        <div>
+            <%= f.label :location%>
+            <%= f.text_field :location, class:"form-control"%>
+        </div><br>
+        <div>
+
+         <div>
+            <%= f.label :capacity%>
+            <%= f.number_field :capacity, class:"form-control"%>
+        </div><br>
+        <div>
+            <%= f.label :price%>
+            <%= f.number_field :price, class:"form-control"%>
+        </div><br>
+        <div>
+            <%= f.label :description%>
+            <%= f.text_area :description, rows: 5, class:"form-control"%>
+        </div><br>
+        
+         <div>
+            <%= f.label :viewing_date%>
+            <%= f.datetime_select :viewing_date, {ampm: true}%>
+        </div><br>
+          <%= f.submit class:'btn btn-success'%>
+    </form>
+<%end%>
