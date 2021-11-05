@@ -2,31 +2,28 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-
 .body {
   background: linear-gradient(to right bottom,rgba(0, 0, 0, 0.945), rgba(0, 0, 0, 0.548)),
   url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/fall-movies-index-1628968089.jpg');
   color: wheat;
-
-  
 }
 .movies {
-    border-radius: 0.2rem;
+  border-radius: 0.2rem;
 }
 
 head {
-    margin: 0;
+  margin: 0;
 }
 
 footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    padding: 1rem 0.5rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 1rem 0.5rem;
 }
 
 .movies_content {
-    padding-bottom: 15rem;
+  padding-bottom: 15rem;
 }
 
 .nav-design {
@@ -39,11 +36,11 @@ footer {
 
 .price,
 .price1 {
-    height: 35px;
-    background-color: rgba(0, 143, 122, 0.815);
-    padding: 5px;
-    border-radius: 3px;
-    transform: skewY(-5deg);
+  height: 35px;
+  background-color: rgba(0, 143, 122, 0.815);
+  padding: 5px;
+  border-radius: 3px;
+  transform: skewY(-5deg);
 }
 
 .img-margin {
@@ -51,7 +48,7 @@ footer {
 }
 
 .price1 {
-    float: left;
+  float: left;
 }
 
 .error {
@@ -79,8 +76,8 @@ footer {
 }
 
 .bold {
-    font-weight: bold;
-    font-size: 1rem;
+  font-weight: bold;
+  font-size: 1rem;
 }
 
 .nav-design {
@@ -102,16 +99,14 @@ footer {
   }
 
   .half_width {
-  width: 90%;
-}
+    width: 90%;
+  }
 
-.nav-design {
-  margin: 1.3rem 0 0 0.5rem;
+  .nav-design {
+    margin: 1.3rem 0 0 0.5rem;
+  }
 
-}
-
-.home {
- 
-  grid-template-columns: 1fr;
-}
+  .home {
+    grid-template-columns: 1fr;
+  }
 }
