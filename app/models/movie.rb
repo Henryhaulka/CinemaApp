@@ -1,4 +1,5 @@
 class Movie < ApplicationRecord
+  has_many :registrations
   mount_uploader :avatar, AvatarUploader
   validates :name, :location, presence: true
   validates :description, length: { minimum: 15 }
