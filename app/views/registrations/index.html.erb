@@ -1,0 +1,7 @@
+<section class= 'movies_content container'>
+    <h2>Registrations</h2>
+    
+    <% @registration.each do |register|%>
+        <div><%= register.name%> heard via <%= register.heard%></div>
+    <%end%>
+</section>
