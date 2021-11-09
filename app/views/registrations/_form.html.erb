@@ -1,0 +1,30 @@
+<%= form_with(model: [@movie,@registration], local: true) do |f|%>
+        <form class="form-group">
+                    <%if @registration.errors.any?%>
+                    <div class='error'>
+                      <h3>OOP! some errors stopped your form from saving</h3>
+                      <%= pluralize(@registration.errors.count, 'error') + ' detected'%> 
+                        <% @registration.errors.each do |err|%>
+                             <li><%= err.full_message%></li>
+                        <%end%>
+                        </div>
+                    <%end%>
+                
+            
+                <div>
+                    <%= f.label :name%>
+                    <%= f.text_field :name, autofocus: true , class:"form-control"%>
+                </div><br>
+                <div>
+                    <%= f.label :email%>
+                    <%= f.text_field :email , class:"form-control"%>
+                </div><br>
+                <div>
+                    <%= f.label :heard%>
+                    <%= f.select :heard, Registration::HOW_HEARD, prompt: '', class:"form-control"%>
+                </div><br>
+                <div>
+                    <%= f.submit class: 'btn btn-success'%>
+                </div>
+         </form>
+<%end%>
