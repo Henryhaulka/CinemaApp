@@ -17,4 +17,8 @@ class Movie < ApplicationRecord
   def nothing?
     self[:price].nil?
   end
+
+  def sold_out?
+      (capacity - registrations.size).zero?
+  end
 end
