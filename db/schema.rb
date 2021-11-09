@@ -10,40 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_09_090426) do
-
+ActiveRecord::Schema.define(version: 20_211_109_090_426) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "movies", force: :cascade do |t|
-    t.string "name"
-    t.string "location"
-    t.decimal "price"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.datetime "viewing_date"
-    t.text "description"
-    t.string "avatar"
-    t.integer "capacity", default: 500
+  create_table 'movies', force: :cascade do |t|
+    t.string 'name'
+    t.string 'location'
+    t.decimal 'price'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.datetime 'viewing_date'
+    t.text 'description'
+    t.string 'avatar'
+    t.integer 'capacity', default: 500
   end
 
-  create_table "registrations", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "heard"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "movie_id", null: false
-    t.index ["movie_id"], name: "index_registrations_on_movie_id"
+  create_table 'registrations', force: :cascade do |t|
+    t.string 'name'
+    t.string 'email'
+    t.string 'heard'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.bigint 'movie_id', null: false
+    t.index ['movie_id'], name: 'index_registrations_on_movie_id'
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "password_digest"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table 'users', force: :cascade do |t|
+    t.string 'name'
+    t.string 'email'
+    t.string 'password_digest'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  add_foreign_key "registrations", "movies"
+  add_foreign_key 'registrations', 'movies'
 end

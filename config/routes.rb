@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-  
   resources :users
-    get 'signup' => 'users#new'
+  get 'signup' => 'users#new'
   root 'movies#index'
   resources :movies do
-     resources :registrations
+    resources :registrations
   end
   # resources handles all these below
   # get 'movies' => 'movies#index'

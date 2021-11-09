@@ -19,6 +19,6 @@ class Movie < ApplicationRecord
   end
 
   def sold_out?
-      (capacity - registrations.size).zero?
+    (capacity - registrations.size).zero?
   end
 end

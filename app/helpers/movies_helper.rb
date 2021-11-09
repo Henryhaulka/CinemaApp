@@ -31,13 +31,9 @@ module MoviesHelper
 
   def spot_sold_out(movie)
     if movie.sold_out?
-      content_tag(:button, 'Sold out !!!', class: 'btn btn-warning' )
+      content_tag(:button, 'Sold out !!!', class: 'btn btn-warning')
     else
-      link_to 'Register !', new_movie_registration_path(movie), class:"btn btn-success"
+      link_to 'Register !', new_movie_registration_path(movie), class: 'btn btn-success'
     end
   end
-  
 end
-
-
- 
