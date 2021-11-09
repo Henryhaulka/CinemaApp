@@ -85,13 +85,25 @@ footer {
 
 }
 
-
-
 .half_width {
   width: 60%;
   margin: auto;
-
 }
+
+.register {
+  text-decoration: none;
+  padding: 2rem 0;
+  
+a {
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+     font-size: larger;
+     color: green;
+    }
+  }
+}
+
 
 @media screen and (max-width: 500px) {
   html {

@@ -1,16 +1,20 @@
-   <section class = 'container movies_content '>
-      <h1><%= @movie.name%></h1>
-      <div><%=for_avatar_medium(@movie)%></div>
-      in <%=@movie.location%> Cinema, <br> <br><p><span class= 'price1 text-white'> <%=price(@movie)%></span></p><br><br>
-            </li>
-            <p><span class="bold">About:</span> <%= @movie.description%></p>
-            <p class = 'text-white'>Available Spots:<span class="text-primary"> <%= @movie.capacity%></span></p>
-      <p class ="text-white">Viewing Time: <span class="text-primary"><%= day_time(@movie) %></span></p>
+<section class = 'container movies_content '>
+   <h1><%= @movie.name%></h1>
+   <div>
+      <%=for_avatar_medium(@movie)%>
+   </div>
+   in <%=@movie.location%> Cinema, <br> <br><p><span class= 'price1 text-white'> <%=price(@movie)%></span></p><br><br>
+   <p><span class="bold">About:</span> <%= @movie.description%></p>
+   <p class = 'text-white'>Available Spots:<span class="text-primary"> <%= @movie.capacity%></span></p>
+   <p class ="text-white">Viewing Time: <span class="text-primary"><%= day_time(@movie) %></span></p>
+      <%= link_to 'Register!', new_movie_registration_path(@movie), class: 'btn btn-success'%>
+   <div class='register'>
+         <%= link_to "Who's Registered?", movie_registrations_path(@movie) %>
+   </div>
 
-      <%= link_to "Who's Registered?", movie_registrations_path(@movie)%>
-
-     <%= link_to "Edit Movie", edit_movie_path(@movie), class:'btn btn-dark'%>
-     <%= link_to "Delete Movie", movie_path(@movie),method: :delete, class:'btn btn-danger',
+   <div>
+      <%= link_to "Edit Movie", edit_movie_path(@movie), class:'btn btn-dark'%>
+      <%= link_to "Delete Movie", movie_path(@movie),method: :delete, class:'btn btn-danger',
       data: { confirm: "Are you sure you want to delete #{@movie.name}"}%>
-   
-   </section>
+   </div>   
+</section>
