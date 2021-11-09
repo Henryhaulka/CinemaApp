@@ -16,6 +16,10 @@
             <%= f.label :password_confirmation, 'Confirm Password'%>
             <%= f.password_field :password_confirmation,class: 'form-control'%>
         </div><br>
-        <%= f.submit class: 'btn btn-success'%>
+        <% if @user.new_record?%>
+             <%= f.submit "Create Account", class: 'btn btn-success'%>
+        <%else%>
+            <%= f.submit "Update Account", class: 'btn btn-success'%>
+        <%end%>
     </form>
  <%end%>

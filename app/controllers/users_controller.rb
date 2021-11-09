@@ -11,6 +11,21 @@ class UsersController < ApplicationController
         @user = User.new
     end
 
+    def edit
+        @user = User.find(params[:id])
+    end
+
+    def update
+        @user = User.find(params[:id])
+        if @user.update(user_params)
+             redirect_to user_path(@user), notice: 'You have Successfully updated your Account info'
+        else
+            render :edit
+        end
+    end
+    
+    
+
     def create
         @user = User.new(user_params)
         if @user.save
@@ -18,6 +33,12 @@ class UsersController < ApplicationController
         else
             render :new
         end
+    end
+
+    def destroy
+       @user = User.find(params[:id])
+       @user.destroy
+       redirect_to root_path, alert: 'Account Deleted Successfully!!'
     end
     
     private
