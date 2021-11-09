@@ -25,7 +25,15 @@ module MoviesHelper
     if movie.avatar?
       image_tag movie.avatar.url(:small)
     else
-      image_tag('default_avatar.jpg', size: '150x150')
+      image_tag('default_avatar.jpg', size: '150x100')
+    end
+  end
+
+  def spot_sold_out(movie)
+    if movie.sold_out?
+      content_tag(:button, 'Sold out !!!', class: 'btn btn-warning')
+    else
+      link_to 'Register !', new_movie_registration_path(movie), class: 'btn btn-success'
     end
   end
 end

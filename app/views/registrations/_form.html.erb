@@ -1,0 +1,20 @@
+<%= form_with(model: [@movie,@registration], local: true) do |f|%>
+        <form class="form-group">
+                    <%= render 'shared/error', object: @registration%>
+                <div>
+                    <%= f.label :name%>
+                    <%= f.text_field :name, autofocus: true , class:"form-control"%>
+                </div><br>
+                <div>
+                    <%= f.label :email%>
+                    <%= f.text_field :email , class:"form-control"%>
+                </div><br>
+                <div>
+                    <%= f.label :heard, "HOW DID YOU GET TO HEAR ABOUT THE MOVIE:"%>
+                    <%= f.select :heard, Registration::HOW_HEARD, prompt: '', class:"form-control"%>
+                </div><br>
+                <div>
+                    <%= f.submit class: 'btn btn-success'%>
+                </div>
+         </form>
+<%end%>

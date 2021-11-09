@@ -1,6 +1,9 @@
 <%if  flash[:notice]%>
       <div class="alert alert-success alert-dismissible fade show" role="alert">
-         <strong>Great,</strong> <%= flash[:notice] %>
-      
-         </div>
-    <%end%>
+          <%= flash[:notice] %>
+      </div>
+<%elsif flash[:alert]%>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <%= flash[:alert] %>
+      </div>
+<%end%>

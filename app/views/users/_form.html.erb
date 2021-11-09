@@ -1,0 +1,25 @@
+<%= form_with(model: @user) do |f|%>
+    <form action="" class="form-group">
+        <div>
+            <%= f.label :name%>
+            <%= f.text_field :name,class: 'form-control'%>
+        </div><br>
+        <div>
+            <%= f.label :email%>
+            <%= f.email_field :email,class: 'form-control'%>
+        </div><br>
+        <div>
+            <%= f.label :password%>
+            <%= f.password_field :password,class: 'form-control'%>
+        </div><br>
+        <div>
+            <%= f.label :password_confirmation, 'Confirm Password'%>
+            <%= f.password_field :password_confirmation,class: 'form-control'%>
+        </div><br>
+        <% if @user.new_record?%>
+             <%= f.submit "Create Account", class: 'btn btn-success'%>
+        <%else%>
+            <%= f.submit "Update Account", class: 'btn btn-success'%>
+        <%end%>
+    </form>
+ <%end%>

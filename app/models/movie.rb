@@ -1,4 +1,5 @@
 class Movie < ApplicationRecord
+  has_many :registrations, dependent: :destroy
   mount_uploader :avatar, AvatarUploader
   validates :name, :location, presence: true
   validates :description, length: { minimum: 15 }
@@ -15,5 +16,9 @@ class Movie < ApplicationRecord
 
   def nothing?
     self[:price].nil?
+  end
+
+  def sold_out?
+    (capacity - registrations.size).zero?
   end
 end

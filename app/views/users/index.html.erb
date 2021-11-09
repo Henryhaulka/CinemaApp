@@ -1,0 +1,8 @@
+<h2><%= pluralize(@user.count, 'USER') + ' REGISTERED'%></h2>
+
+<% @user.each do |user|%>
+    <div>
+        <%= link_to user.name, user%>
+           registered <%= time_ago_in_words(user.created_at) + ' ago'%>
+    </div>
+<%end%>

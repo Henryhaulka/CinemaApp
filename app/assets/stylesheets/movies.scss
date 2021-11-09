@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 .body {
-  background: linear-gradient(to right bottom,rgba(0, 0, 0, 0.945), rgba(0, 0, 0, 0.548)),
+  background: linear-gradient(to bottom right,rgba(0, 0, 0, 0.815), rgba(0, 0, 0, 0.651)),
   url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/fall-movies-index-1628968089.jpg');
   color: wheat;
 }
@@ -24,6 +24,7 @@ footer {
 
 .movies_content {
   padding-bottom: 15rem;
+  padding-top: 2rem;
 }
 
 .nav-design {
@@ -85,13 +86,25 @@ footer {
 
 }
 
-
-
 .half_width {
   width: 60%;
   margin: auto;
-
 }
+
+.register {
+  text-decoration: none;
+  padding: 2rem 0;
+  
+a {
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+     font-size: larger;
+     color: green;
+    }
+  }
+}
+
 
 @media screen and (max-width: 500px) {
   html {
