@@ -7,7 +7,7 @@
    <p><span class="bold">About:</span> <%= @movie.description%></p>
    <p class = 'text-white'>Available Spots:<span class="text-primary"> <%= @movie.capacity%></span></p>
    <p class ="text-white">Viewing Time: <span class="text-primary"><%= day_time(@movie) %></span></p>
-      <%= link_to 'Register!', new_movie_registration_path(@movie), class: 'btn btn-success'%>
+     <%= spot_sold_out(@movie)%>
    <div class='register'>
          <%= link_to "Who's Registered?", movie_registrations_path(@movie) %>
    </div>
