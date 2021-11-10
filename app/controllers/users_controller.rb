@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to movies_path, notice: 'Welcome, You have successfully created an account'
+      redirect_to movies_path, notice: "Welcome #{@user.name}, You have successfully created an account"
     else
       render :new
     end
