@@ -20,6 +20,7 @@ class ApplicationController < ActionController::Base
    def correct_user?(user)
        current_user == user
    end
+   
    helper_method :correct_user?
     
 end
