@@ -1,4 +1,6 @@
 class MoviesController < ApplicationController
+  before_action :require_login, except: [:index, :show]
+  before_action :require_admin, except: [:index, :show]
   def index
     @movies = Movie.upcoming
   end

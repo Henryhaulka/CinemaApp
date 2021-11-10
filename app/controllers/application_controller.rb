@@ -22,5 +22,16 @@ class ApplicationController < ActionController::Base
    end
    
    helper_method :correct_user?
+
+   def require_admin
+        redirect_to movies_path, alert: 'Unauthorized Access!!' unless current_user.admin?
+   end
+   
+   def current_user_admin?
+      current_user && current_user.admin?
+   end
+
+   helper_method :current_user_admin?
+   
     
 end
