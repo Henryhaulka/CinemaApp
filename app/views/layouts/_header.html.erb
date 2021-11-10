@@ -1,8 +1,12 @@
 <header class= "bg-primary m-0 d-flex">
-    
                <h3 class= 'text-white p-2'> <%= link_to image_tag('movie',size: "50x30", class:'movies'), movies_path(@movies)%><%= link_to 'MoviesHouse', root_path, class:'text-white text-decoration-none'%> </h3>
            <%= link_to 'Add Movie', new_movie_path, class: 'text-white text-decoration-none nav-design'%>
-           <%= link_to 'Sign up', signup_path, class: 'text-white text-decoration-none nav-design'%>
-           <%= link_to 'Sign in', new_session_path, class: 'text-white text-decoration-none nav-design'%>
-      
+           <%if current_user %>
+                 <%=  link_to "Username: #{current_user.name}", user_path(session[:user_id]), class:  'text-white text-decoration-none nav-design' %>
+                 <%= link_to 'Sign out', session_path, method: :delete,
+                 data: { confirm: 'Are you sure?'}, class: 'text-white text-decoration-none nav-design '%>
+            <%elsif%>
+                <%= link_to 'Sign up', signup_path, class: 'text-white text-decoration-none nav-design'%>
+                <%= link_to 'Sign in', new_session_path, class: 'text-white text-decoration-none nav-design'%>
+            <%end%>
 </header>
