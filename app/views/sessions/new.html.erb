@@ -1,0 +1,17 @@
+
+<section class="half_width movies_content">
+  <h1>Sign In</h1>
+    <%= form_with(url: session_path, local: true) do |f|%>
+        <form action="" class="form-group">
+            <div>
+                <%=f.label :email%>
+                <%=f.email_field :email, autofocus: true, class: 'form-control'%>
+            </div><br>
+             <div>
+                <%=f.label :password%>
+                <%=f.password_field :password , class: 'form-control'%>
+            </div><br><br>
+                <%= f.submit 'SIGN IN', class: 'form-control btn btn-success'%>
+        </form>
+    <%end%>
+</section>
