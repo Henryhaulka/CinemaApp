@@ -7,8 +7,9 @@ class SessionsController < ApplicationController
     if !user.nil? && user.authenticate(params[:password])
       #saving the user.id in a hash which will be use to track the user when signed in
        session[:user_id] = user.id
-       redirect_to user_path(user), notice: "Welcome back, #{user.name.upcase} \u{1f600}"
-    else
+       redirect_to (session[:intended_url] || user), notice: "Welcome back, #{user.name.upcase} \u{1f600}"
+         session[:intended_url] = nil
+      else
       flash[:alert] = 'Invalid Password/Email Combination'
         render :new
     end
