@@ -1,7 +1,6 @@
 class Registration < ApplicationRecord
   belongs_to :movie
-  validates :name, presence: true
-  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
+  belongs_to :user
 
   HOW_HEARD = [
     'Television',

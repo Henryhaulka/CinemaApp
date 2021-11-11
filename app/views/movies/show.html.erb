@@ -1,8 +1,8 @@
-<section class = 'container movies_content '>
+<section class = 'half_width  movies_content '>
    <h1><%= @movie.name%></h1>
    <div>
-      <%=for_avatar_medium(@movie)%>
-   </div>
+      <%= image_tag(@movie.avatar.url, class:'movie_image')%>
+   </div><br>
    in <%=@movie.location%> Cinema, <br> <br><p><span class= 'price1 text-white'> <%=price(@movie)%></span></p><br><br>
    <p><span class="bold">About:</span> <%= @movie.description%></p>
    <p class = 'text-white'>Available Spots:<span class="text-primary"> <%= @movie.capacity%></span></p>
@@ -12,9 +12,11 @@
          <%= link_to "Who's Registered?", movie_registrations_path(@movie) %>
    </div>
 
-   <div>
-      <%= link_to "Edit Movie", edit_movie_path(@movie), class:'btn btn-dark'%>
-      <%= link_to "Delete Movie", movie_path(@movie),method: :delete, class:'btn btn-danger',
-      data: { confirm: "Are you sure you want to delete #{@movie.name}"}%>
-   </div>   
+   <%if current_user_admin?%>
+      <div>
+         <%= link_to "Edit Movie", edit_movie_path(@movie), class:'btn btn-dark'%>
+         <%= link_to "Delete Movie", movie_path(@movie),method: :delete, class:'btn btn-danger',
+         data: { confirm: "Are you sure you want to delete #{@movie.name}"}%>
+      </div> 
+   <%end%>  
 </section>

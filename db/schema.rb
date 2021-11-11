@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_211_109_090_426) do
+ActiveRecord::Schema.define(version: 20_211_110_150_958) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -22,17 +22,16 @@ ActiveRecord::Schema.define(version: 20_211_109_090_426) do
     t.datetime 'updated_at', precision: 6, null: false
     t.datetime 'viewing_date'
     t.text 'description'
-    t.string 'avatar'
+    t.string 'avatar', default: 'default_avatar.jpg'
     t.integer 'capacity', default: 500
   end
 
   create_table 'registrations', force: :cascade do |t|
-    t.string 'name'
-    t.string 'email'
     t.string 'heard'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
     t.bigint 'movie_id', null: false
+    t.integer 'user_id'
     t.index ['movie_id'], name: 'index_registrations_on_movie_id'
   end
 
@@ -42,6 +41,7 @@ ActiveRecord::Schema.define(version: 20_211_109_090_426) do
     t.string 'password_digest'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
+    t.boolean 'admin', default: false
   end
 
   add_foreign_key 'registrations', 'movies'
