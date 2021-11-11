@@ -1,10 +1,25 @@
-<h1><%= @user.name%></h1>
-<h3><%= mail_to(@user.email)%></h3>
-
-<%if  correct_user?(@user)%>
+<section class="half_width movies_content">
+   <h1><%= @user.name.upcase%></h1>
+   <h6>User Email: <%= mail_to(@user.email)%></h6><br>
+   
    <div>
-      <%= link_to 'Edit Account', edit_user_path(@user), class: "btn btn-outline-info"%>
-      <%= link_to 'Delete Account',user_path(@user), method: :delete,
-         data: { confirm: "Are you sure you want to delete your Account?"}, class: "btn btn-outline-danger"%>
-   </div>
-<%end%>
+         <%= link_to 'ALL USERS', users_path, class: 'text-decoration-none text-white' %>
+   </div><br>
+   <%if  correct_user?(@user)%>
+      <div>
+         <%= link_to 'Edit Account', edit_user_path(@user), class: "btn btn-outline-info"%>&nbsp &nbsp
+         <%= link_to 'Delete Account',user_path(@user), method: :delete,
+            data: { confirm: "Are you sure you want to delete your Account?"}, class: "btn btn-outline-danger"%>
+      </div>
+   <%end%><br>
+   
+   
+      <% @registered.each do |r|%>
+         <div class= 'user_reg'>
+            <div><%= image_tag("#{r.movie.avatar.url}", class:'reg_image')%></div>
+            <div><%= r.movie.name %></div>
+            <div><%= time_ago_in_words(r.movie.created_at) + ' ago' %></div>
+         </div>
+      <%end%>
+
+</section>
