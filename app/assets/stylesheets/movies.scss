@@ -95,15 +95,31 @@ footer {
   width: 100%;
   margin: auto;
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 2fr 2fr 1fr;
   border: 1px solid rgb(167, 162, 162);
   padding: 1rem;
   margin-bottom: 1rem;
   border-radius: 5px;
 }
 
+.margin_top {
+  margin-top: 2rem;
+}
+
 .reg_image {
   width: 10rem;
+}
+
+.movie_image {
+  width: 15rem;
+  margin: auto;
+  display: block;
+  height: 15rem;
+  border-radius: 10px;
+  transition: all 0.2s;
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 .register {
@@ -126,6 +142,15 @@ a {
   html {
     font-size: 60%;
   }
+
+  .reg_image {
+    width: 7rem;
+  }
+
+  .margin_top {
+  margin-top: 1rem;
+}
+
 
   .half_width {
     width: 90%;

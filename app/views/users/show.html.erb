@@ -17,8 +17,8 @@
       <% @registered.each do |r|%>
          <div class= 'user_reg'>
             <div><%= image_tag("#{r.movie.avatar.url}", class:'reg_image')%></div>
-            <div><%= r.movie.name %></div>
-            <div><%= time_ago_in_words(r.movie.created_at) + ' ago' %></div>
+            <div class='margin_top'><h3><%= link_to r.movie.name, r.movie, class: 'text-decoration-none text-success' %></h3></div>
+            <div class='margin_top'><%= time_ago_in_words(r.movie.created_at) + ' ago' %></div>
          </div>
       <%end%>
 
