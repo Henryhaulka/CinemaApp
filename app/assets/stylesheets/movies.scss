@@ -87,8 +87,23 @@ footer {
 }
 
 .half_width {
-  width: 60%;
+  width: 70%;
   margin: auto;
+}
+
+.user_reg {
+  width: 100%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  border: 1px solid rgb(167, 162, 162);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+}
+
+.reg_image {
+  width: 10rem;
 }
 
 .register {
@@ -106,6 +121,7 @@ a {
 }
 
 
+
 @media screen and (max-width: 500px) {
   html {
     font-size: 60%;
@@ -121,5 +137,10 @@ a {
 
   .home {
     grid-template-columns: 1fr;
+  }
+
+  .user_reg {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px
   }
 }
