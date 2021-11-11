@@ -1,4 +1,5 @@
 class RegistrationsController < ApplicationController
+  before_action :require_login
   def index
     @movie = Movie.find(params[:movie_id])
     @registration = @movie.registrations
@@ -12,6 +13,7 @@ class RegistrationsController < ApplicationController
   def create
     @movie = Movie.find(params[:movie_id])
     @registration = @movie.registrations.new(reg_params)
+    @registration.user = current_user
     if @registration.save
       redirect_to movie_registrations_path(@movie), notice: 'Thank you for registering!'
     else
