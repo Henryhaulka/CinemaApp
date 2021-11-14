@@ -20,6 +20,11 @@ class MoviesController < ApplicationController
 
   def show
     @movie = Movie.find(params[:id])
+    @likers = @movie.likers
+    if current_user
+      @registered = current_user.registrations.find_by(movie_id: @movie.id)
+      @liked = current_user.likes.find_by(movie_id: @movie.id)
+    end
   end
 
   def edit
