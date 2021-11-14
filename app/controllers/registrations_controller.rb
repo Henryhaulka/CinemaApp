@@ -15,15 +15,22 @@ class RegistrationsController < ApplicationController
     @registration = @movie.registrations.new(reg_params)
     @registration.user = current_user
     if @registration.save
-      redirect_to movie_registrations_path(@movie), notice: 'Thank you for registering!'
+      redirect_to movie_registrations_path(@movie), notice: "Thank you for registering! \u{1f917}"
     else
       render :new
     end
   end
 
+  def destroy
+     registered = current_user.registrations.find(params[:id])
+     registered.destroy
+     movie = Movie.find(params[:movie_id])
+     redirect_to movie_path(movie), alert: "You have successfully cancel your registration for #{movie.name} \u{1f62a}"
+  end
+
   private
 
   def reg_params
-    params.require(:registration).permit(:name, :email, :heard)
+    params.require(:registration).permit(:heard)
   end
 end
