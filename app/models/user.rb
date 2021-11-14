@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
+  mount_uploader :user_image, UserImageUploader
   has_many :registrations, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :liked_movies, through: :likes, source: :movie
