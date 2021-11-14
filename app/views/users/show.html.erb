@@ -1,4 +1,11 @@
 <section class="half_width movies_content">
+  <div>
+     <%if @user.user_image.url.present? %>
+         <div><%= image_tag("#{@user.user_image.url}", class:'reg_image rounded-circle mx-auto d-block')%></div>
+      <%else%>
+          Pls upload a profile picture
+      <%end%>
+  </div><br>
    <h1><%= @user.name.upcase%></h1>
    <h6>User Email: <%= mail_to(@user.email)%></h6><br>
    
@@ -12,14 +19,17 @@
             data: { confirm: "Are you sure you want to delete your Account?"}, class: "btn btn-outline-danger"%>
       </div>
    <%end%><br>
-   
-   
       <% @registered.each do |r|%>
          <div class= 'user_reg'>
             <div><%= image_tag("#{r.movie.avatar.url}", class:'reg_image')%></div>
             <div class='margin_top'><h3><%= link_to r.movie.name, r.movie, class: 'text-decoration-none text-success' %></h3></div>
             <div class='margin_top'><%= time_ago_in_words(r.movie.created_at) + ' ago' %></div>
          </div>
+      <%end%>
+
+      <% @liked_movies.each do |movie|%>
+      <h4><%= @user.name%>'s Favorite Movies:</h4>
+          <%= link_to image_tag(movie.avatar.url, size: '50x50'), movie%>
       <%end%>
 
 </section>
