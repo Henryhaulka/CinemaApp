@@ -123,6 +123,11 @@ footer {
   width: 10rem;
 }
 
+.checks {
+  display: flex;
+  flex-direction: column;
+}
+
 .movie_image {
   width: 100%;
   margin: auto;

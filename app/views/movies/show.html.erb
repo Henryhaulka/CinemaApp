@@ -1,9 +1,17 @@
 <section class = 'half_width  movies_content '>
    <h1 class= 'text-center'><%= @movie.name%></h1><br>
-   <div class= 'w-50 mx-auto'>
-      <%= image_tag(@movie.avatar.url(@movie), class:'movie_image')%><br>
-       in <%=@movie.location%> Cinema, <span class= 'price1 text-white'> <%=price(@movie)%></span><br>
    
+   <div class= 'w-50 mx-auto'>
+      <div><%= image_tag(@movie.avatar.url(@movie), class:'movie_image')%><br></div>
+       in <%=@movie.location%> Cinema, <span class= 'price1 text-white'> <%=price(@movie)%></span><br>
+   <div><br>
+   <%if @category.exists? %>
+      <h5 >Categories</h5>
+        <% @category.each do |c|%>
+          <li><%= c.name%></li>
+        <%end%>
+   <%end%>
+   </div>
    </div><br>
   <div>
      <%if current_user%>
@@ -23,6 +31,8 @@
          <%end%>
    <%end%>
 
+
+  
 
    <p><span class="bold">About:</span> <%= @movie.description%></p>
    <p class = 'text-white'>Available Spots:<span class="text-primary"> <%= @movie.capacity%></span></p>

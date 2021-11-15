@@ -21,6 +21,7 @@ class MoviesController < ApplicationController
   def show
     @movie = Movie.find(params[:id])
     @likers = @movie.likers
+    @category = @movie.categories
     if current_user
       @registered = current_user.registrations.find_by(movie_id: @movie.id)
       @liked = current_user.likes.find_by(movie_id: @movie.id)
@@ -52,6 +53,6 @@ class MoviesController < ApplicationController
   private
 
   def movie_params
-    params.require(:movie).permit(:name, :location, :description, :viewing_date, :price, :avatar, :capacity)
+    params.require(:movie).permit(:name, :location, :description, :viewing_date, :price, :avatar, :capacity, category_ids: [])
   end
 end
