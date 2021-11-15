@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
-  resources :likes
+  
+  resources :categories
   resource :session, only: %i[new create destroy]
   resources :users
   get 'signup' => 'users#new'
   root 'movies#index'
   resources :movies do
     resources :registrations
+    resources :likes, only: [:create, :destroy]
   end
 
   # resources handles all these below
