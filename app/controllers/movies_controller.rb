@@ -2,7 +2,16 @@ class MoviesController < ApplicationController
   before_action :require_login, except: %i[index show]
   before_action :require_admin, except: %i[index show]
   def index
-    @movies = Movie.upcoming
+    case params[:filter]
+    when 'released'
+      @movies = Movie.released
+    when 'free'
+      @movies = Movie.free
+    when 'recent'
+      @movies = Movie.recent
+    else
+      @movies = Movie.upcoming
+    end
   end
 
   def new
