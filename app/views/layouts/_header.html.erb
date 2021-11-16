@@ -1,17 +1,42 @@
-<header class= "bg-primary m-0 d-flex">
-               <h3 class= 'text-white p-2'> <%= link_to image_tag('movie.jpg',size: "50x30", class:'movies'), movies_path(@movies)%><%= link_to 'MoviesHouse', root_path, class:'text-white text-decoration-none'%> </h3>
-                <%= link_to 'Upcoming', movies_path, class: 'text-white text-decoration-none nav-design'%>
-                 <%= link_to 'Past', filtered_movies_path(:released), class: 'text-white text-decoration-none nav-design'%>
-                  <%= link_to 'Free', filtered_movies_path(:free), class: 'text-white text-decoration-none nav-design'%>
-            <%if current_user_admin? %>   
-                    <%= link_to 'Add Movie', new_movie_path, class: 'text-white text-decoration-none nav-design'%>
-            <%end%>
-           <%if current_user %>
-                 <%=  link_to "Username: #{current_user.name}", user_path(session[:user_id]), class:  'text-white text-decoration-none nav-design' %>
-                 <%= link_to 'Sign out', session_path, method: :delete,
-                 data: { confirm: 'Are you sure?'}, class: 'text-white text-decoration-none nav-design '%>
-            <%elsif%>
-                <%= link_to 'Sign up', signup_path, class: 'text-white text-decoration-none nav-design'%>
-                <%= link_to 'Sign in', new_session_path, class: 'text-white text-decoration-none nav-design'%>
-            <%end%>
-</header>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark text-center">
+  <div class="container-fluid">
+     <h3 class= 'text-white p-2'> <%= link_to image_tag('movie.jpg',size: "50x30", class:'movies'), movies_path(@movies)%><%= link_to 'CinemaApp', root_path, class:'text-white text-decoration-none'%> </h3>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <%= link_to 'Upcoming', movies_path, class: 'nav-link active'%>
+        </li>
+        <li class="nav-item">
+           <%= link_to 'Past', filtered_movies_path(:released), class: 'nav-link'%>
+        </li>
+        <li class="nav-item">
+          <%= link_to 'Free', filtered_movies_path(:free), class: 'nav-link'%>
+        </li>
+        <%if current_user_admin? %>   
+            <li class="nav-item">
+                <%= link_to 'Add Movie', new_movie_path, class: 'nav-link'%>
+            </li>
+         <%end%>
+
+        <%if current_user %>
+                <li class="nav-item">
+                    <%=  link_to "User: #{current_user.name}", user_path(session[:user_id]), class:'nav-link' %>
+                </li>
+                <li class="nav-item">
+                    <%= link_to 'Sign out', session_path, method: :delete,
+                    data: { confirm: 'Are you sure?'}, class: 'nav-link'%>
+                </li>
+        <%elsif%>
+            <li class="nav-item">
+                <%= link_to 'Sign up', signup_path, class: 'nav-link'%>
+            </li>
+            <li class="nav-item">
+                <%= link_to 'Sign in', new_session_path, class: 'nav-link'%>
+            </li>
+        <%end%>
+    </div>
+  </div>
+</nav>
