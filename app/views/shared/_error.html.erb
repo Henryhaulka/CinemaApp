@@ -1,0 +1,11 @@
+<%if object.errors.any?%>
+      <div class='error'>
+      <h4>OOPS!!! your form  can't be saved</h4>
+        <%= pluralize(object.errors.count, 'error') + " detected"%>
+        <ul>
+        <% object.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <%end%>
+        </ul>
+      </div>
+    <%end%>

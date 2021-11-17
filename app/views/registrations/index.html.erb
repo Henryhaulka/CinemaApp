@@ -1,0 +1,10 @@
+<section class= 'movies_content container'><br>
+    <%if @registration.exists?%>
+        <h2>Registrations for <%= link_to @movie.name, @movie, class: 'text-decoration-none'%></h2><br>
+        <% @registration.each do |register|%>
+            <li><%= link_to register.user.name.upcase, register.user, class: 'text-decoration-none text-info'%> heard via <%= register.heard%></li>
+        <%end%>
+    <%else%>
+          NO ONE REGISTERED FOR THIS MOVIE YET
+    <%end%>
+</section>
