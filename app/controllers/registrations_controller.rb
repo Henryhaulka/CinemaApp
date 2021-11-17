@@ -21,17 +21,18 @@ class RegistrationsController < ApplicationController
   end
 
   def destroy
-     registered = current_user.registrations.find(params[:id])
-     registered.destroy
-     movie = Movie.find_by!(slug: params[:movie_id])
-     redirect_to movie_path(movie), alert: "You have successfully cancel your registration for #{movie.name} \u{1f62a}"
+    registered = current_user.registrations.find(params[:id])
+    registered.destroy
+    movie = Movie.find_by!(slug: params[:movie_id])
+    redirect_to movie_path(movie), alert: "You have successfully cancel your registration for #{movie.name} \u{1f62a}"
   end
 
   private
+
   def set_movie
-     @movie = Movie.find_by(slug: params[:movie_id])
+    @movie = Movie.find_by(slug: params[:movie_id])
   end
-  
+
   def reg_params
     params.require(:registration).permit(:heard)
   end
