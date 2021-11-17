@@ -123,6 +123,22 @@ footer {
   width: 10rem;
 }
 
+.admin-btn,
+.member-btn {
+  font-size: 0.9rem;
+  border-radius: 0.6rem;
+  padding: 0.3rem;
+}
+
+.admin-btn {
+  background-color: #4D8076;
+}
+
+.member-btn {
+   background-color: #DCF5FF;
+   color: blue;
+}
+
 .commenter {
   width: 2rem;
   border-radius: 2rem;

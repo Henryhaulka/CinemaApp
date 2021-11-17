@@ -6,7 +6,10 @@
           Pls upload a profile picture
       <%end%>
   </div><br>
-   <h1><%= @user.name.upcase%></h1>
+   <h4>
+   <%= @user.name.upcase%>
+   <%= is_admin(current_user_admin?)%>
+   </h4>
    <h6>User Email: <%= mail_to(@user.email)%></h6><br>
    
    <div>
