@@ -123,6 +123,17 @@ footer {
   width: 10rem;
 }
 
+.commenter {
+  width: 2rem;
+  border-radius: 2rem;
+}
+
+.ago {
+  color: aliceblue;
+  font-size: smaller;
+  
+}
+
 .checks {
   display: flex;
   flex-direction: column;

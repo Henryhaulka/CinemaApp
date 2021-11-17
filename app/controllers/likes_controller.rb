@@ -7,9 +7,9 @@ class LikesController < ApplicationController
     end
 
     def destroy
-        liked = current_user.likes.find(params[:id])
-        liked.destroy
         movie = Movie.find_by!(slug: params[:movie_id])
+        liked = movie.likes.find_by(user_id: current_user.id)
+        liked.destroy
         redirect_to movies_path, alert: "You have removed #{movie.name} from your Favourite list \u{1f44e}"
     end
     

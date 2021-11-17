@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
   before_action :require_login, except: %i[index show]
   before_action :require_admin, except: %i[index show]
-  before_action :set_movie, only: [:show,:edit,:upadte, :destroy]
+  before_action :set_movie, only: [:show,:edit,:update, :destroy]
   def index
     case params[:filter]
     when 'released'
@@ -31,7 +31,8 @@ class MoviesController < ApplicationController
   def show
     @likers = @movie.likers
     @category = @movie.categories
-    if current_user
+    @commenter = @movie.commenters
+    if current_user.present?
       @registered = current_user.registrations.find_by(movie_id: @movie.id)
       @liked = current_user.likes.find_by(movie_id: @movie.id)
     end
@@ -58,7 +59,7 @@ class MoviesController < ApplicationController
 
   private
   def set_movie
-    @movie = Movie.find_by(slug: params[:id])
+    @movie = Movie.find_by!(slug: params[:id])
   end
   
   def movie_params
