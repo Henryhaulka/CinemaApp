@@ -5,6 +5,8 @@ class Movie < ApplicationRecord
   has_many :likers, through: :likes, source: :user
   has_many :categorizations
   has_many :categories, through: :categorizations
+  has_many :comments, dependent: :destroy
+  has_many :commenters, through: :comments, source: :user
 
   mount_uploader :avatar, AvatarUploader
    validates :name, presence: true, uniqueness: true 
