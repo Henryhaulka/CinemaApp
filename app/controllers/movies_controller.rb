@@ -1,8 +1,18 @@
 class MoviesController < ApplicationController
   before_action :require_login, except: %i[index show]
   before_action :require_admin, except: %i[index show]
+  before_action :set_movie, only: %i[show edit update destroy]
   def index
-    @movies = Movie.upcoming
+    @movies = case params[:filter]
+              when 'released'
+                Movie.released
+              when 'free'
+                Movie.free
+              when 'recent'
+                Movie.recent
+              else
+                Movie.upcoming
+              end
   end
 
   def new
@@ -19,15 +29,18 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @movie = Movie.find(params[:id])
+    @likers = @movie.likers
+    @category = @movie.categories
+    @commenter = @movie.commenters
+    return unless current_user.present?
+
+    @registered = current_user.registrations.find_by(movie_id: @movie.id)
+    @liked = current_user.likes.find_by(movie_id: @movie.id)
   end
 
-  def edit
-    @movie = Movie.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @movie = Movie.find(params[:id])
     if @movie.update(movie_params)
       redirect_to movie_path(@movie), notice: 'Movie successfully updated!'
     else
@@ -36,7 +49,6 @@ class MoviesController < ApplicationController
   end
 
   def destroy
-    @movie = Movie.find(params[:id])
     if @movie.destroy
       redirect_to movies_path(@movies), notice: 'Movie successfully deleted!'
     else
@@ -46,7 +58,11 @@ class MoviesController < ApplicationController
 
   private
 
+  def set_movie
+    @movie = Movie.find_by!(slug: params[:id])
+  end
+
   def movie_params
-    params.require(:movie).permit(:name, :location, :description, :viewing_date, :price, :avatar, :capacity)
+    params.require(:movie).permit(:name, :location, :description, :viewing_date, :price, :avatar, :capacity, category_ids: [])
   end
 end

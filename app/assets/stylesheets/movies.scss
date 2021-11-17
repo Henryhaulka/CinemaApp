@@ -27,6 +27,23 @@ footer {
   padding-top: 2rem;
 }
 
+.thumb {
+  width: 2rem;
+  border-radius: 45%;
+}
+
+.button {
+  display: inline-flex;
+  background-color: rgb(199, 188, 188);
+  border-radius: 5px;
+  border: 1px solid grey;
+}
+
+.counter {
+  padding: 3px 5px 0 5px;
+  color: black;
+}
+
 .nav-design {
   margin-left: 20px;
 }
@@ -46,10 +63,6 @@ footer {
 
 .img-margin {
   margin-top: 1rem;
-}
-
-.price1 {
-  float: left;
 }
 
 .error {
@@ -110,8 +123,40 @@ footer {
   width: 10rem;
 }
 
+.admin-btn,
+.member-btn {
+  font-size: 0.9rem;
+  border-radius: 0.6rem;
+  padding: 0.3rem;
+}
+
+.admin-btn {
+  background-color: #4D8076;
+}
+
+.member-btn {
+   background-color: #DCF5FF;
+   color: blue;
+}
+
+.commenter {
+  width: 2rem;
+  border-radius: 2rem;
+}
+
+.ago {
+  color: aliceblue;
+  font-size: smaller;
+  
+}
+
+.checks {
+  display: flex;
+  flex-direction: column;
+}
+
 .movie_image {
-  width: 15rem;
+  width: 100%;
   margin: auto;
   display: block;
   height: 15rem;
