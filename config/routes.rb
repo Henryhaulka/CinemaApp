@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  
   resources :categories
   resource :session, only: %i[new create destroy]
   resources :users
@@ -7,6 +8,7 @@ Rails.application.routes.draw do
   root 'movies#index'
   get 'movies/filter/:filter' => 'movies#index', as: :filtered_movies
   resources :movies do
+    resources :comments, only: [:create, :destroy]
     resources :registrations
     resources :likes, only: [:create, :destroy]
   end
