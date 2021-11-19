@@ -23,6 +23,7 @@
       </div>
    <%end%><br>
       <% @registered.each do |r|%>
+      <h3>Registered Movies</h3>
          <div class= 'user_reg'>
             <div><%= image_tag("#{r.movie.avatar.url}", class:'reg_image')%></div>
             <div class='margin_top'><h3><%= link_to r.movie.name, r.movie, class: 'text-decoration-none text-success' %></h3></div>

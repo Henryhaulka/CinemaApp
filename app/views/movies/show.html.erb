@@ -23,10 +23,10 @@
      <%end%>
   </div><br>
 
-   <%if  @likers.exists?%>
+   <%if @likers.exists?%>
       <h5>Movies liked by</h5>
          <% @likers.each do |user| %>
-         <%= link_to image_tag("#{user.user_image}", class:'thumb'), user %>&nbsp
+         <%= link_to user.name, user, class: 'text-decoration-none text-info' %>&nbsp
          <%end%>
    <%end%>  
 
@@ -53,25 +53,29 @@
             <%end%><br>
          <div><%= f.submit class:'btn btn-success' %></div><br>
       <%end%>
-     
+
+
+
+    
       <%if @commenter.present? %>
-         <h4>Comments</h4>
-         <% @commenter.each do |c|%>
-             <div>
-                  <%=  image_tag("#{c.user_image}", class: 'commenter')%>
-                           <%= link_to c.name, c , class: 'text-decoration-none text-info '%><br>
-                           <% c.comments.each do |comment| %>
-                           <div class= 'container m-2'><%= comment.body%> <span class='ago'><%=  time_ago_in_words( comment.created_at) + " ago" %></span>
-                              <%if current_user && current_user.id == c.id %>
-                                 <%= link_to 'delete', movie_comment_path(@movie,@commenter), method: :delete,
-                                 class: 'text-decoration-none text-danger ',
-                                 data: {confirm: 'Are you sure?'}%>
-                              <%end%>
+        <div class= ' text-dark p-2 rounder'>
+            <% @commenter.each do |e| %>
+                  <div >
+                     <%=link_to e.user.name.capitalize, e.user, class: 'text-dark text-decoration-none'%>
+                     <div class= 'mx-4'>
+                        <%= e.body%>
+                        <%if current_user && current_user.id == e.user.id %>
+                                                <%= link_to 'delete', movie_comment_path(@movie,@commenter), method: :delete,
+                                                class: 'text-decoration-none text-danger ',
+                                                data: {confirm: 'Are you sure?'}%>
+                        <%end%>
+                     
                      </div>
-                  <%end%>
-               </div><br>
-         <%end%>
-      <%end%> 
+                  </div><br>
+             <%end%>
+         </div>
+     <%end%>
+      
    </div>
 
    <%if current_user_admin?%>
