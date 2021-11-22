@@ -7,10 +7,9 @@ ruby '2.7.2'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
-
+gem 'paperclip', '~> 6.0.0'
+gem 'paperclip-cloudinary'
 # Use Puma as the app server
-gem 'carrierwave', '~> 2.0'
-gem 'mini_magick', '~> 4.11'
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
@@ -41,6 +40,7 @@ group :development do
   gem 'web-console', '>= 4.1.0'
   # Display performance information such as SQL time and flame graphs for each request in your browser.
   # Can be configured to work on production as well see: https://github.com/MiniProfiler/rack-mini-profiler/blob/master/README.md
+  gem 'hirb', '~> 0.7.3'
   gem 'listen', '~> 3.3'
   gem 'rack-mini-profiler', '~> 2.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
