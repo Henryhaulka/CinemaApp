@@ -1,7 +1,8 @@
 <section class = 'half_width  movies_content '>
    <h1 class= 'text-center'><%= @movie.name%></h1><br>
    <div class= 'w-50 mx-auto'>
-      <div><%= image_tag(@movie.avatar.url(@movie), class:'movie_image')%><br></div>
+      <div><%= image_tag(@movie.avatar.url, class:'movie_image')%><br></div>
+      
        in <%=@movie.location%> Cinema, <span class= 'price1 text-white'> <%=price(@movie)%></span><br>
    <div><br>
    <%if @category.exists? %>
@@ -46,22 +47,20 @@
 
    <div>
       <%= form_with model: [@movie, @movie.comments.build] do |f|%>
-         <div><%= f.label :body, 'Comment', class: 'display-4'%></div>
+         <div><%= f.label :body, 'Leave Your Comment', class: 'display-5'%></div>
          <div><%= f.text_area :body, class: 'form-control', rows: 5%></div>
             <%if current_user%>
                <%= f.number_field   :user_id, value: current_user.id, type: :hidden%>
             <%end%><br>
          <div><%= f.submit class:'btn btn-success' %></div><br>
       <%end%>
-
-
-
     
       <%if @commenter.present? %>
         <div class= ' text-dark p-2 rounder'>
+        <h5>Comments</h5>
             <% @commenter.each do |e| %>
                   <div >
-                     <%=link_to e.user.name.capitalize, e.user, class: 'text-dark text-decoration-none'%>
+                     <%=link_to e.user.name.capitalize, e.user, class: 'text-success text-decoration-none'%>
                      <div class= 'mx-4'>
                         <%= e.body%>
                         <%if current_user && current_user.id == e.user.id %>
@@ -71,9 +70,9 @@
                         <%end%>
                      
                      </div>
-                  </div><br>
+                  </div>
              <%end%>
-         </div>
+         </div><br>
      <%end%>
       
    </div>
