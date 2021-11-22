@@ -63,7 +63,7 @@
                    <%= image_tag ("#{e.user.image.url}"), class: 'iko' %>
                      <%=link_to e.user.name.capitalize, e.user, class: 'text-success text-decoration-none'%>
                      <div class= 'mx-5 pt-1'>
-                        <%= e.body%>
+                        <%= e.body%>  <i class='ago'><%= time_ago_in_words(e.created_at) + ' ago' %></i>
                         <%if current_user && current_user.id == e.user.id %>
                                                 <%= link_to 'delete', movie_comment_path(@movie,@commenter), method: :delete,
                                                 class: 'text-decoration-none text-danger ',
