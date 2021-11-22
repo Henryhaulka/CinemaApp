@@ -11,8 +11,8 @@ This App is a Cinema online booking site where users can create an account and r
 - Admin users can do all that a member can do and also create, update and delete movie
 
 
-![screenshot](img/game1.png)
-![screenshot](img/game2.png)
+![screenshot](img/cinema1.png)
+![screenshot](img/cinema2.png)
 
 
 
