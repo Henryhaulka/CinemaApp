@@ -7,3 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 User.create!(name: 'Henry', email: 'onuhenry24@gmail.com',
              password: 'henryhaulka', admin: true, user_image: 'henry.jpg')
+
+genre = ["Thriller", "Romance", "Comedy", "Action"]
+genre.each {|g| Category.create!(name: g)}
