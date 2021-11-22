@@ -10,89 +10,88 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_22_080255) do
-
+ActiveRecord::Schema.define(version: 20_211_122_080_255) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "categories", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table 'categories', force: :cascade do |t|
+    t.string 'name'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  create_table "categorizations", force: :cascade do |t|
-    t.bigint "movie_id", null: false
-    t.bigint "category_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["category_id"], name: "index_categorizations_on_category_id"
-    t.index ["movie_id"], name: "index_categorizations_on_movie_id"
+  create_table 'categorizations', force: :cascade do |t|
+    t.bigint 'movie_id', null: false
+    t.bigint 'category_id', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['category_id'], name: 'index_categorizations_on_category_id'
+    t.index ['movie_id'], name: 'index_categorizations_on_movie_id'
   end
 
-  create_table "comments", force: :cascade do |t|
-    t.bigint "movie_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.text "body"
-    t.index ["movie_id"], name: "index_comments_on_movie_id"
-    t.index ["user_id"], name: "index_comments_on_user_id"
+  create_table 'comments', force: :cascade do |t|
+    t.bigint 'movie_id', null: false
+    t.bigint 'user_id', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.text 'body'
+    t.index ['movie_id'], name: 'index_comments_on_movie_id'
+    t.index ['user_id'], name: 'index_comments_on_user_id'
   end
 
-  create_table "likes", force: :cascade do |t|
-    t.bigint "movie_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["movie_id"], name: "index_likes_on_movie_id"
-    t.index ["user_id"], name: "index_likes_on_user_id"
+  create_table 'likes', force: :cascade do |t|
+    t.bigint 'movie_id', null: false
+    t.bigint 'user_id', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['movie_id'], name: 'index_likes_on_movie_id'
+    t.index ['user_id'], name: 'index_likes_on_user_id'
   end
 
-  create_table "movies", force: :cascade do |t|
-    t.string "name"
-    t.string "location"
-    t.decimal "price"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.datetime "viewing_date"
-    t.text "description"
-    t.integer "capacity", default: 500
-    t.string "slug"
-    t.string "avatar_file_name"
-    t.string "avatar_content_type"
-    t.integer "avatar_file_size"
-    t.datetime "avatar_updated_at"
+  create_table 'movies', force: :cascade do |t|
+    t.string 'name'
+    t.string 'location'
+    t.decimal 'price'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.datetime 'viewing_date'
+    t.text 'description'
+    t.integer 'capacity', default: 500
+    t.string 'slug'
+    t.string 'avatar_file_name'
+    t.string 'avatar_content_type'
+    t.integer 'avatar_file_size'
+    t.datetime 'avatar_updated_at'
   end
 
-  create_table "registrations", force: :cascade do |t|
-    t.string "heard"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.bigint "movie_id", null: false
-    t.integer "user_id"
-    t.index ["movie_id"], name: "index_registrations_on_movie_id"
+  create_table 'registrations', force: :cascade do |t|
+    t.string 'heard'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.bigint 'movie_id', null: false
+    t.integer 'user_id'
+    t.index ['movie_id'], name: 'index_registrations_on_movie_id'
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "password_digest"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.boolean "admin", default: false
-    t.string "user_image"
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.integer "image_file_size"
-    t.datetime "image_updated_at"
+  create_table 'users', force: :cascade do |t|
+    t.string 'name'
+    t.string 'email'
+    t.string 'password_digest'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.boolean 'admin', default: false
+    t.string 'user_image'
+    t.string 'image_file_name'
+    t.string 'image_content_type'
+    t.integer 'image_file_size'
+    t.datetime 'image_updated_at'
   end
 
-  add_foreign_key "categorizations", "categories"
-  add_foreign_key "categorizations", "movies"
-  add_foreign_key "comments", "movies"
-  add_foreign_key "comments", "users"
-  add_foreign_key "likes", "movies"
-  add_foreign_key "likes", "users"
-  add_foreign_key "registrations", "movies"
+  add_foreign_key 'categorizations', 'categories'
+  add_foreign_key 'categorizations', 'movies'
+  add_foreign_key 'comments', 'movies'
+  add_foreign_key 'comments', 'users'
+  add_foreign_key 'likes', 'movies'
+  add_foreign_key 'likes', 'users'
+  add_foreign_key 'registrations', 'movies'
 end
