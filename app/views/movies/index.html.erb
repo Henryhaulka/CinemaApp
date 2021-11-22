@@ -9,7 +9,7 @@
                     <div>
                         in <%=movie.location%>,
                         <p>About: <%= truncate(movie.description, size: 40, seperator: " ")%></p>
-                        <p class ="text-danger">Viewing Time: <span class="text-primary"><%= day_time(movie) %></span></p>
+                        <p >Viewing Time: <span class="text-info"><%= day_time(movie) %></span></p>
                     </div>
                     
                      <div class= "price"> <%= price(movie)%></div>

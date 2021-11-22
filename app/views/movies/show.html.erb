@@ -35,10 +35,10 @@
       <span class="bold">About:</span> <%= @movie.description%>
    </p>
    <p class = 'text-white'>
-      Available Spots:<span class="text-primary"> <%= @movie.capacity%></span>
+      Available Spots:<span> <%= @movie.capacity%></span>
    </p>
    <p class ="text-white">
-         Viewing Time: <span class="text-primary"><%= day_time(@movie) %></span>
+         Viewing Time: <span><%= day_time(@movie) %></span>
    </p>
       <%= registered_or_unregistered(@movie,@registered)%>
    <div class='register'>

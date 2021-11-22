@@ -31,7 +31,7 @@ class MoviesController < ApplicationController
   def show
     @likers = @movie.likers
     @category = @movie.categories
-    @commenter = Comment.where(movie_id: @movie.id)
+    @commenter = Comment.where(movie_id: @movie.id).order(id: :desc)
     return unless current_user.present?
 
     @registered = current_user.registrations.find_by(movie_id: @movie.id)
