@@ -177,6 +177,10 @@ footer {
   }
 }
 
+.move {
+  width: 50%;
+}
+
 .rounder {
   border-radius: 1rem;
   background-color: #FAEAFF;
@@ -214,6 +218,10 @@ a {
 
   .half_width {
     width: 90%;
+  }
+
+  .move {
+  width: 100%;
   }
 
   .nav-design {

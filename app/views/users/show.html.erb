@@ -26,10 +26,11 @@
             <div class='margin_top'><%= time_ago_in_words(r.movie.created_at) + ' ago' %></div>
          </div>
       <%end%>
-
-      <% @liked_movies.each do |movie|%>
-      <h4><%= @user.name%>'s Favorite Movies:</h4>
-          <%= link_to image_tag(movie.avatar.url, size: '50x50'), movie%>
-      <%end%>
+      <%if  @liked_movies %>
+            <h4><%= @user.name%>'s Favorite Movies:</h4>
+            <% @liked_movies.each do |movie|%>
+               <%= link_to image_tag(movie.avatar.url, size: '50x50'), movie%>
+            <%end%>
+       <%end%>
 
 </section>
