@@ -1,10 +1,6 @@
 <section class="half_width movies_content">
   <div>
-     <%if @user.user_image.url.present? %>
-         <div><%= image_tag("#{@user.user_image.url}", class:'reg_image rounded-circle mx-auto d-block')%></div>
-      <%else%>
-          Pls upload a profile picture
-      <%end%>
+         <div><%= image_tag("#{@user.image.url}", class:'reg_image curve mx-auto d-block')%></div>
   </div><br>
    <h4>
    <%= @user.name.upcase%>

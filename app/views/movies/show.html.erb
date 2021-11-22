@@ -60,8 +60,9 @@
         <h5>Comments</h5>
             <% @commenter.each do |e| %>
                   <div >
+                   <%= image_tag ("#{e.user.image.url}"), class: 'iko' %>
                      <%=link_to e.user.name.capitalize, e.user, class: 'text-success text-decoration-none'%>
-                     <div class= 'mx-4'>
+                     <div class= 'mx-5 pt-1'>
                         <%= e.body%>
                         <%if current_user && current_user.id == e.user.id %>
                                                 <%= link_to 'delete', movie_comment_path(@movie,@commenter), method: :delete,
