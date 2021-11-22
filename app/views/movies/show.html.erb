@@ -1,6 +1,6 @@
 <section class = 'half_width  movies_content '>
    <h1 class= 'text-center'><%= @movie.name%></h1><br>
-   <div class= 'w-50 mx-auto'>
+   <div class= 'move mx-auto'>
       <div><%= image_tag(@movie.avatar.url, class:'movie_image')%><br></div>
       
        in <%=@movie.location%> Cinema, <span class= 'price1 text-white'> <%=price(@movie)%></span><br>
