@@ -34,8 +34,12 @@
    <p>
       <span class="bold">About:</span> <%= @movie.description%>
    </p>
+
+   <p>
+      Cinema capacity: <%= @movie.capacity%>
+   </p>
    <p class = 'text-white'>
-      Available Spots:<span> <%= @movie.capacity%></span>
+      Available Spot:<span> <%= avaliable(@movie,@registrations)%></span>
    </p>
    <p class ="text-white">
          Viewing Time: <span><%= day_time(@movie) %></span>

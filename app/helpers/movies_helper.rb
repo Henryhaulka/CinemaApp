@@ -63,4 +63,9 @@ module MoviesHelper
       content_tag(:span, 'Member', class: 'member-btn')
     end
   end
+
+  def avaliable(movie,registrations)
+      movie.capacity - movie.registrations.size
+  end
+  
 end
