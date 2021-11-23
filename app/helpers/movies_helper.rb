@@ -64,8 +64,7 @@ module MoviesHelper
     end
   end
 
-  def avaliable(movie,registrations)
-      movie.capacity - movie.registrations.size
+  def avaliable(movie, _registrations)
+    movie.capacity - movie.registrations.size
   end
-  
 end
