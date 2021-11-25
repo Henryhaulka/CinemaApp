@@ -1,12 +1,10 @@
 class CommentsController < ApplicationController
   before_action :require_login, except: %i[index show]
   def create
-     movie = Movie.find_by!(slug: params[:movie_id])
+    movie = Movie.find_by!(slug: params[:movie_id])
     comment = movie.comments.build(comment_params)
     comment.user = current_user
-    if comment.save
-    redirect_to movie_path(movie), notice: 'Thanks for your comment'
-    end
+    redirect_to movie_path(movie), notice: 'Thanks for your comment' if comment.save
   end
 
   def destroy
