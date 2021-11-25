@@ -1,11 +1,12 @@
 class CommentsController < ApplicationController
   before_action :require_login, except: %i[index show]
   def create
-    return unless current_user
-
-    @movie = Movie.find_by!(slug: params[:movie_id])
-    @movie.comments.create!(comment_params)
-    redirect_to movie_path(@movie), notice: 'Thanks for your comment'
+     movie = Movie.find_by!(slug: params[:movie_id])
+    comment = movie.comments.build(comment_params)
+    comment.user = current_user
+    if comment.save
+    redirect_to movie_path(movie), notice: 'Thanks for your comment'
+    end
   end
 
   def destroy
@@ -18,6 +19,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:body, :user_id)
+    params.require(:comment).permit(:body)
   end
 end

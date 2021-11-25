@@ -52,10 +52,7 @@
    <div>
       <%= form_with model: [@movie, @movie.comments.build] do |f|%>
          <div><%= f.label :body, 'Leave Your Comment', class: 'display-5'%></div>
-         <div><%= f.text_area :body, class: 'form-control', rows: 5%></div>
-            <%if current_user%>
-               <%= f.number_field   :user_id, value: current_user.id, type: :hidden%>
-            <%end%><br>
+         <div><%= f.text_area :body, class: 'form-control', rows: 5%></div><br>
          <div><%= f.submit class:'btn btn-success' %></div><br>
       <%end%>
     
