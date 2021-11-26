@@ -6,9 +6,8 @@
             <%= f.text_field :name, autofocus: true, class:"form-control"%>
         </div><br>
 
-        <div>
-            <%= f.label :avatar%>
-            <%= f.file_field :avatar, class:"form-control"%>
+         <div class="field">
+            <%= f.file_field :avatar, as: :file , class:"form-control"%>
         </div><br>
         <div>
             <%= f.label :location%>

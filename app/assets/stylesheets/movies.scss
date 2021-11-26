@@ -115,12 +115,22 @@ footer {
   border-radius: 5px;
 }
 
+.iko {
+  width: 2rem;
+}
+
 .margin_top {
   margin-top: 2rem;
 }
 
 .reg_image {
   width: 10rem;
+}
+
+.curve {
+  border-radius: 10px;
+  width: 12rem;
+  height: 14rem;
 }
 
 .admin-btn,
@@ -167,6 +177,20 @@ footer {
   }
 }
 
+.move {
+  width: 50%;
+}
+
+.rounder {
+  border-radius: 1rem;
+  background-color: #FAEAFF;
+}
+
+.ago {
+  color:  gray;
+  font-size: 0.8rem;
+}
+
 .register {
   text-decoration: none;
   padding: 2rem 0;
@@ -185,7 +209,7 @@ a {
 
 @media screen and (max-width: 500px) {
   html {
-    font-size: 60%;
+    font-size: 90%;
   }
 
   .reg_image {
@@ -199,6 +223,10 @@ a {
 
   .half_width {
     width: 90%;
+  }
+
+  .move {
+  width: 100%;
   }
 
   .nav-design {

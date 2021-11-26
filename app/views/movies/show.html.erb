@@ -1,8 +1,9 @@
 <section class = 'half_width  movies_content '>
    <h1 class= 'text-center'><%= @movie.name%></h1><br>
-   <div class= 'w-50 mx-auto'>
-      <div><%= image_tag(@movie.avatar.url(@movie), class:'movie_image')%><br></div>
-       in <%=@movie.location%> Cinema, <span class= 'price1 text-white'> <%=price(@movie)%></span><br>
+   <div class= 'move mx-auto'>
+      <div><%= image_tag(@movie.avatar.url, class:'movie_image')%><br></div>
+      
+       in <%=@movie.location%>, <span class= 'price1 text-white'> <%=price(@movie)%></span><br>
    <div><br>
    <%if @category.exists? %>
       <h5 >Categories</h5>
@@ -23,21 +24,25 @@
      <%end%>
   </div><br>
 
-   <%if  @likers.exists?%>
+   <%if @likers.exists?%>
       <h5>Movies liked by</h5>
          <% @likers.each do |user| %>
-         <%= link_to image_tag("#{user.user_image}", class:'thumb'), user %>&nbsp
+         <%= link_to user.name, user, class: 'text-decoration-none text-info' %>&nbsp
          <%end%>
    <%end%>  
 
    <p>
       <span class="bold">About:</span> <%= @movie.description%>
    </p>
+
+   <p>
+      Cinema capacity: <%= @movie.capacity%>
+   </p>
    <p class = 'text-white'>
-      Available Spots:<span class="text-primary"> <%= @movie.capacity%></span>
+      Available Spot:<span> <%= avaliable(@movie,@registrations)%></span>
    </p>
    <p class ="text-white">
-         Viewing Time: <span class="text-primary"><%= day_time(@movie) %></span>
+         Viewing Time: <span><%= day_time(@movie) %></span>
    </p>
       <%= registered_or_unregistered(@movie,@registered)%>
    <div class='register'>
@@ -46,32 +51,32 @@
 
    <div>
       <%= form_with model: [@movie, @movie.comments.build] do |f|%>
-         <div><%= f.label :body, 'Comment', class: 'display-4'%></div>
-         <div><%= f.text_area :body, class: 'form-control', rows: 5%></div>
-            <%if current_user%>
-               <%= f.number_field   :user_id, value: current_user.id, type: :hidden%>
-            <%end%><br>
+         <div><%= f.label :body, 'Leave Your Comment', class: 'display-5'%></div>
+         <div><%= f.text_area :body, class: 'form-control', rows: 5%></div><br>
          <div><%= f.submit class:'btn btn-success' %></div><br>
       <%end%>
-     
+    
       <%if @commenter.present? %>
-         <h4>Comments</h4>
-         <% @commenter.each do |c|%>
-             <div>
-                  <%=  image_tag("#{c.user_image}", class: 'commenter')%>
-                           <%= link_to c.name, c , class: 'text-decoration-none text-info '%><br>
-                           <% c.comments.each do |comment| %>
-                           <div class= 'container m-2'><%= comment.body%> <span class='ago'><%=  time_ago_in_words( comment.created_at) + " ago" %></span>
-                              <%if current_user && current_user.id == c.id %>
-                                 <%= link_to 'delete', movie_comment_path(@movie,@commenter), method: :delete,
-                                 class: 'text-decoration-none text-danger ',
-                                 data: {confirm: 'Are you sure?'}%>
-                              <%end%>
+        <div class= ' text-dark p-2 rounder'>
+        <h5>Comments</h5>
+            <% @commenter.each do |e| %>
+                  <div >
+                   <%= image_tag ("#{e.user.image.url}"), class: 'iko' %>
+                     <%=link_to e.user.name.capitalize, e.user, class: 'text-success text-decoration-none'%>
+                     <div class= 'mx-5 pt-1'>
+                        <%= e.body%>  <i class='ago'><%= time_ago_in_words(e.created_at) + ' ago' %></i>
+                        <%if current_user && current_user.id == e.user.id %>
+                                                <%= link_to 'delete', movie_comment_path(@movie,@commenter), method: :delete,
+                                                class: 'text-decoration-none text-danger ',
+                                                data: {confirm: 'Are you sure?'}%>
+                        <%end%>
+                     
                      </div>
-                  <%end%>
-               </div><br>
-         <%end%>
-      <%end%> 
+                  </div>
+             <%end%>
+         </div><br>
+     <%end%>
+      
    </div>
 
    <%if current_user_admin?%>

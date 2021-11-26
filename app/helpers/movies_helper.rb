@@ -56,11 +56,15 @@ module MoviesHelper
     end
   end
 
-  def admin?(current_user_admin)
-    if current_user_admin
+  def admin?(user)
+    if user.admin == true
       content_tag(:span, 'Admin', class: 'admin-btn')
     else
       content_tag(:span, 'Member', class: 'member-btn')
     end
+  end
+
+  def avaliable(movie, _registrations)
+    movie.capacity - movie.registrations.size
   end
 end

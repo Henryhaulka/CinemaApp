@@ -5,8 +5,8 @@
             <%= f.text_field :name,class: 'form-control'%>
         </div><br>
         <div>
-            <%= f.label :user_image%>
-            <%= f.file_field :user_image, class:"form-control"%>
+            <%= f.label :image%>
+            <%= f.file_field :image, as: :file , class:"form-control"%>
         </div><br>
         <div>
             <%= f.label :email%>
