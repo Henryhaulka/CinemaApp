@@ -10,6 +10,9 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to (session[:intended_url] || user), notice: "Welcome back, #{user.name.upcase} \u{1f600}"
       session[:intended_url] = nil
+    elsif session[:user_id]
+         flash[:alert] = 'You are signed in already'
+         redirect_to root_path
     else
       flash[:alert] = 'Invalid Password/Email Combination'
       render :new
